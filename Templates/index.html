@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Voting App - Start Voting</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'polls/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'polls/css/scrolling-nav.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Vote app</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#polls">Polls home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Welcome to my Voting App </h1>
+      <p class="lead">An app designed by temitope</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>About this page</h2>
+          <p class="lead">This is a great place to make your vote count. This application is purposefully
+                         designed to ensure you have a free and fair election..Enjoy your vote:</p>
+          <ul>
+            <li>your vote count</li>
+            <li>happy voting</li>
+            <li>we offer the best</li>
+            <li>we are the best</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">Free and fair election.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="polls">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h1>Home of the Vote App</h1>
+             <p class = "Lead">{% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+            </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Contact us</h2>
+          <p class="lead">@techForTop , taibattemitope@gmail.com.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{%  static 'polls/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{%  static 'polls/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'polls/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'polls/js/scrolling-nav.js' %}"></script>
+
+</body>
+
+</html>
